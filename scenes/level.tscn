@@ -57,7 +57,7 @@ position = Vector2(352, 173)
 position = Vector2(-244, -17)
 
 [node name="SpikeBall" parent="Traps/Saw" instance=ExtResource("6_e2ac8")]
-position = Vector2(64, 8)
+position = Vector2(360, 5)
 
 [connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
 [connection signal="touched_player" from="Traps/Saw" to="." method="_on_trap_touched_player"]
