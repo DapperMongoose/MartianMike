@@ -1,11 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6n2ss6mxob41"]
+[gd_scene load_steps=9 format=3 uid="uid://c6n2ss6mxob41"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_7i03e"]
 [ext_resource type="PackedScene" uid="uid://rocxf7el2htq" path="res://scenes/player.tscn" id="2_s3hco"]
 [ext_resource type="Texture2D" uid="uid://1pmd0vbimt4a" path="res://icon.svg" id="3_yw34l"]
+[ext_resource type="PackedScene" uid="uid://3mfrpdeoibha" path="res://scenes/jump_pad.tscn" id="4_07pto"]
+[ext_resource type="PackedScene" uid="uid://di0lsfdt6fqoa" path="res://scenes/saw.tscn" id="5_ptawk"]
+[ext_resource type="PackedScene" uid="uid://cnr1w40050org" path="res://scenes/spike_ball.tscn" id="6_e2ac8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ducd2"]
 size = Vector2(588, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5o6w1"]
+size = Vector2(1918, 130)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_7i03e")
@@ -23,3 +29,37 @@ texture = ExtResource("3_yw34l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 shape = SubResource("RectangleShape2D_ducd2")
+
+[node name="Deathzone" type="Area2D" parent="."]
+position = Vector2(246, 307)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
+shape = SubResource("RectangleShape2D_5o6w1")
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(386, 156)
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="JumpPad" parent="Objects" instance=ExtResource("4_07pto")]
+position = Vector2(313, 173)
+
+[node name="JumpPad2" parent="Objects" instance=ExtResource("4_07pto")]
+position = Vector2(352, 173)
+jump_force = 350
+
+[node name="Traps" type="Node2D" parent="."]
+position = Vector2(352, 173)
+
+[node name="Saw" parent="Traps" instance=ExtResource("5_ptawk")]
+position = Vector2(-257, -13)
+
+[node name="Saw2" parent="Traps" instance=ExtResource("5_ptawk")]
+position = Vector2(-322, -13)
+
+[node name="SpikeBall" parent="Traps" instance=ExtResource("6_e2ac8")]
+position = Vector2(116, -12)
+
+[connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
