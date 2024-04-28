@@ -3,12 +3,14 @@ extends Node2D
 @onready var start_position = $StartPosition
 @onready var player = $Player
 
+func _ready():
+	var traps = get_tree().get_nodes_in_group("traps")
+
 func _process(delta):
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
 	elif Input.is_action_just_pressed("reset"):
 		get_tree().reload_current_scene()
-
 
 func _on_deathzone_body_entered(body):
 	reset_player()
