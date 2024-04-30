@@ -1,8 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpxuryfjk7v2o"]
+[gd_scene load_steps=10 format=3 uid="uid://dpxuryfjk7v2o"]
 
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_vf0kp"]
 [ext_resource type="PackedScene" uid="uid://rocxf7el2htq" path="res://scenes/player.tscn" id="1_xifib"]
+[ext_resource type="PackedScene" uid="uid://bp6wlb5qnc1kj" path="res://scenes/level_3.tscn" id="2_dybk7"]
+[ext_resource type="PackedScene" uid="uid://psecui0hh42a" path="res://scenes/bg.tscn" id="2_nqkkc"]
+[ext_resource type="PackedScene" uid="uid://ch1tyku5wl1uj" path="res://scenes/start.tscn" id="3_h7vs5"]
+[ext_resource type="Texture2D" uid="uid://dnkgi2tnc1xr7" path="res://assets/textures/bg/Green.png" id="3_nryd2"]
+[ext_resource type="PackedScene" uid="uid://dum4bvb6rtgtm" path="res://scenes/exit.tscn" id="4_rwmr1"]
+[ext_resource type="PackedScene" uid="uid://dxoyrfmkng8rn" path="res://scenes/deathzone.tscn" id="5_76wct"]
+[ext_resource type="PackedScene" uid="uid://c3tlq04n6gkb" path="res://scenes/tile_map.tscn" id="7_oo5cq"]
 
 [node name="Level_2" type="Node2D"]
+script = ExtResource("1_vf0kp")
+next_level = ExtResource("2_dybk7")
+
+[node name="BG" parent="." instance=ExtResource("2_nqkkc")]
+bg_texture = ExtResource("3_nryd2")
+
+[node name="Start" parent="." instance=ExtResource("3_h7vs5")]
+position = Vector2(-20, 209)
+
+[node name="Exit" parent="." instance=ExtResource("4_rwmr1")]
+position = Vector2(475, 209)
+
+[node name="Deathzone" parent="." instance=ExtResource("5_76wct")]
+position = Vector2(303, 320)
+
+[node name="TileMap" parent="." instance=ExtResource("7_oo5cq")]
+layer_0/tile_data = PackedInt32Array(1048606, 524288, 2, 983070, 524288, 1, 917534, 524288, 1, 851998, 524288, 0, 1048605, 458752, 2, 983069, 458752, 1, 917533, 458752, 1, 851997, 458752, 0, 1048604, 458752, 2, 983068, 458752, 1, 917532, 458752, 1, 851996, 458752, 0, 1048603, 458752, 2, 983067, 458752, 1, 917531, 458752, 1, 851995, 458752, 0, 1048602, 458752, 2, 983066, 458752, 1, 917530, 458752, 1, 851994, 458752, 0, 1048601, 458752, 2, 983065, 458752, 1, 917529, 458752, 1, 851993, 458752, 0, 1048600, 458752, 2, 983064, 458752, 1, 917528, 458752, 1, 851992, 458752, 0, 1048599, 458752, 2, 983063, 458752, 1, 917527, 458752, 1, 851991, 458752, 0, 1048598, 458752, 2, 983062, 458752, 1, 917526, 458752, 1, 851990, 458752, 0, 1048597, 458752, 2, 983061, 458752, 1, 917525, 458752, 1, 851989, 458752, 0, 1048596, 458752, 2, 983060, 458752, 1, 917524, 458752, 1, 851988, 458752, 0, 1048595, 458752, 2, 983059, 458752, 1, 917523, 458752, 1, 851987, 458752, 0, 1048594, 458752, 2, 983058, 458752, 1, 917522, 458752, 1, 851986, 458752, 0, 1048593, 458752, 2, 983057, 458752, 1, 917521, 458752, 1, 851985, 458752, 0, 1048592, 458752, 2, 983056, 458752, 1, 917520, 458752, 1, 851984, 458752, 0, 1048591, 458752, 2, 983055, 458752, 1, 917519, 458752, 1, 851983, 458752, 0, 1048590, 458752, 2, 983054, 458752, 1, 917518, 458752, 1, 851982, 458752, 0, 1048589, 458752, 2, 983053, 458752, 1, 917517, 458752, 1, 851981, 458752, 0, 1048588, 458752, 2, 983052, 458752, 1, 917516, 458752, 1, 851980, 458752, 0, 1048587, 458752, 2, 983051, 458752, 1, 917515, 458752, 1, 851979, 458752, 0, 1048586, 458752, 2, 983050, 458752, 1, 917514, 458752, 1, 851978, 458752, 0, 1048585, 458752, 2, 983049, 458752, 1, 917513, 458752, 1, 851977, 458752, 0, 1048584, 458752, 2, 983048, 458752, 1, 917512, 458752, 1, 851976, 458752, 0, 1048583, 458752, 2, 983047, 458752, 1, 917511, 458752, 1, 851975, 458752, 0, 1048582, 458752, 2, 983046, 458752, 1, 917510, 458752, 1, 851974, 458752, 0, 1048581, 458752, 2, 983045, 458752, 1, 917509, 458752, 1, 851973, 458752, 0, 1048580, 458752, 2, 983044, 458752, 1, 917508, 458752, 1, 851972, 458752, 0, 1048579, 458752, 2, 983043, 458752, 1, 917507, 458752, 1, 851971, 458752, 0, 1048578, 458752, 2, 983042, 458752, 1, 917506, 458752, 1, 851970, 458752, 0, 1048577, 458752, 2, 983041, 458752, 1, 917505, 458752, 1, 851969, 458752, 0, 1048576, 458752, 2, 983040, 458752, 1, 917504, 458752, 1, 851968, 458752, 0, 1114111, 458752, 2, 1048575, 458752, 1, 983039, 458752, 1, 917503, 458752, 0, 1114110, 458752, 2, 1048574, 458752, 1, 983038, 458752, 1, 917502, 458752, 0, 1114109, 393216, 2, 1048573, 393216, 1, 983037, 393216, 1, 917501, 393216, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_xifib")]
-position = Vector2(241, 153)
+position = Vector2(194, 197)
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Traps" type="Node2D" parent="."]
